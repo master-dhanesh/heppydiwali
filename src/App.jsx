@@ -8,10 +8,10 @@ const App = () => {
     ]);
 
     return (
-        <>
+        <div className="text-white flex w-screen h-screen bg-gray-800 p-10">
             <Create todos={todos} settodos={settodos} />
             <Read todos={todos} settodos={settodos} />
-        </>
+        </div>
     );
 };
 
