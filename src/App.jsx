@@ -1,11 +1,11 @@
-import Create from "./components/Create";
-import Read from "./components/Read";
+import Navbar from "./components/Navbar";
+import Mainroutes from "./routes/Mainroutes";
 
 const App = () => {
     return (
-        <div className="text-white flex w-screen h-screen bg-gray-800 p-10">
-            <Create />
-            <Read />
+        <div className="py-10 px-[10%] w-screen h-screen text-white font-thin bg-gray-800">
+            <Navbar />
+            <Mainroutes />
         </div>
     );
 };
