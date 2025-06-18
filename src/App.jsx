@@ -1,31 +1,43 @@
-import { useCallback, useMemo, useState } from "react";
-import Recipe from "./Recipe";
+import { useRef } from "react";
+import styled from "styled-components";
 
 const App = () => {
-    const [add, setadd] = useState(0);
-    const [sub, setsub] = useState(99);
+    const inputRef = useRef();
 
-    const ingredients = useCallback(() => {
-        console.log("Recipe Ingredients Here");
-    }, [sub]);
+    // const MyH1 = styled.h1`
+    //     color: white;
+    //     font-size: 100px;
+    //     background-color: ${(props) => props.bg};
+    // `;
+
+    const c = "red";
+    const MYH1 = styled.h1({
+        color: "pink",
+        fontSize: "100px",
+        backgroundColor: c,
+    });
+
+    const WatchHandler = () => {
+        if (inputRef.current.value.length < 4) {
+            inputRef.current.style.borderBottom = "2px solid tomato";
+        } else {
+            inputRef.current.style.borderBottom = "2px solid green";
+        }
+    };
 
     return (
         <div className="py-10 px-[10%] text-white bg-gray-800 h-screen w-screen font-thin">
-            <button
-                onClick={() => setadd(add + 1)}
-                className="mr-10 mt-[10%] font-black p-2 text-5xl rounded bg-blue-400"
-            >
-                {add}
+            <MYH1 bg="pink">Let's Learn useRef</MYH1>
+
+            <input
+                ref={inputRef}
+                type="text"
+                placeholder="enter something..."
+                className="my-10 block border-b p-2 text-5xl outline-0"
+            />
+            <button onClick={WatchHandler} className="text-5xl">
+                See Value
             </button>
-            <button
-                onClick={() => setsub(sub - 1)}
-                className=" mt-[10%] font-black p-2 text-5xl rounded bg-blue-400"
-            >
-                {sub}
-            </button>
-            <br />
-            <br />
-            <Recipe ing={ingredients} />
         </div>
     );
 };
