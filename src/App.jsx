@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const App = () => {
@@ -9,6 +9,10 @@ const App = () => {
     //     font-size: 100px;
     //     background-color: ${(props) => props.bg};
     // `;
+
+    useEffect(() => {
+        document.title = "Homepage | React";
+    });
 
     const c = "red";
     const MYH1 = styled.h1({
@@ -28,7 +32,7 @@ const App = () => {
     return (
         <div className="py-10 px-[10%] text-white bg-gray-800 h-screen w-screen font-thin">
             <MYH1 bg="pink">Let's Learn useRef</MYH1>
-
+            <h1 className="text-3xl">{import.meta.env.VITE_APP_TIMEPASS}</h1>
             <input
                 ref={inputRef}
                 type="text"
